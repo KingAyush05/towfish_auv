@@ -83,10 +83,15 @@ qwerty
 
 ### 5. Run the script:
 
-- Once SSH is done, execute the Python script using python3 by pasting the following command in the home directory:
+- Once SSH is done, navigate to the catkin_ws directory by running the following command:
 ```bash
-cd
-python3 catkin_make.py
+/home/towfish/Desktop/catkin_ws
+```
+
+- Source the setup.bash file and execute the Python script using python3 by pasting the following command in the home directory:
+```bash
+source devel/setup.bash
+python3 src/run.py
 ```
 
 
