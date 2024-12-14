@@ -83,8 +83,9 @@ qwerty
 
 ### 5. Run the script:
 
-- Execute the Python script using python3:
+- Once SSH is done, execute the Python script using python3 by pasting the following command in the home directory:
 ```bash
+cd
 python3 catkin_make.py
 ```
 
