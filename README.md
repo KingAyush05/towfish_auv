@@ -34,6 +34,41 @@ qwerty
 
 - Once authenticated, the SSH connection will be established, and you will have remote access to the Raspberry Pi's terminal.
 
+## Setting Up ROS Master-Slave Configuration
+
+To configure your laptop as a ROS master or slave, follow these steps to add the required lines to the .bashrc file:
+
+### 1. Add ROS Configuration Lines to .bashrc:
+- Open a terminal and run the following commands to append the environment variables directly to the .bashrc file:
+
+```bash
+echo "export ROS_IP=192.168.178.154" >> ~/.bashrc
+echo "export ROS_MASTER_URI=http://192.168.178.154:11311" >> ~/.bashrc
+```
+
+- Source the updated .bashrc file to immediately apply the changes:
+
+```bash
+source ~/.bashrc
+```
+
+### 2. Verify the Configuration:
+- Check if the variables have been set correctly by running:
+
+```bash
+echo $ROS_IP
+echo $ROS_MASTER_URI
+```
+
+- The output should display:
+```bash
+192.168.178.154
+http://192.168.178.154:11311
+```
+
+
+
+
 
 
 
