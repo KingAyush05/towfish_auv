@@ -85,7 +85,7 @@ qwerty
 
 - Once SSH is done, navigate to the catkin_ws directory by running the following command:
 ```bash
-/home/towfish/Desktop/catkin_ws
+cd /home/towfish/Desktop/catkin_ws
 ```
 
 - Source the setup.bash file and execute the Python script using python3 by pasting the following command in the home directory:
