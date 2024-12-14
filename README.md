@@ -1,8 +1,56 @@
-# TowFish_AUV
+# TowFish AUV
 
 This github repository works, so it should work on you PC as well!!!
 
-## Setting up ssh with Raspberry Pi 4B
+## Setting Up ROS Master-Slave Configuration
+
+To configure your laptop as a ROS master or slave, follow these steps to add the required lines to the .bashrc file:
+
+### 1. Add ROS Configuration Lines to .bashrc:
+- Open a terminal and run the following commands to append the environment variables directly to the .bashrc file:
+
+```bash
+echo "export ROS_IP=192.168.178.154" >> ~/.bashrc
+echo "export ROS_MASTER_URI=http://192.168.178.154:11311" >> ~/.bashrc
+```
+
+- Source the updated .bashrc file to immediately apply the changes:
+
+```bash
+source ~/.bashrc
+```
+
+### 2. Allowing traffic on port 11311:
+- We will need to explicitly allow traffic on port 11311, which tis the default port used by ROS Master. To do this run the following command on terminal:
+
+```bash
+sudo ufw allow 11311
+```
+- This is necessary for communication between the ROS Master and Slave nodes.
+
+### 2. Verify the Configuration:
+- Check if the variables have been set correctly by running:
+
+```bash
+echo $ROS_IP
+echo $ROS_MASTER_URI
+```
+
+- The output should display:
+```bash
+192.168.178.154
+http://192.168.178.154:11311
+```
+
+### 3. Run roscore to Start the ROS Master
+
+- Start the ROS master node by running the following command in a terminal:
+```bash
+roscore
+```
+- IMPORTANT: The terminal needs to remain open to Make sure that the roscore is running for the entire time, 
+
+## Running a Script on the Raspberry Pi via SSH
 
 ### 1. Physical Connection:
 - Connect the Raspberry Pi to your laptop using a standard Ethernet cable.
@@ -31,40 +79,19 @@ sudo ssh -X towfish@192.168.178.123
 ```bash
 qwerty
 ```
-
 - Once authenticated, the SSH connection will be established, and you will have remote access to the Raspberry Pi's terminal.
 
-## Setting Up ROS Master-Slave Configuration
+### 5. Run the script:
 
-To configure your laptop as a ROS master or slave, follow these steps to add the required lines to the .bashrc file:
-
-### 1. Add ROS Configuration Lines to .bashrc:
-- Open a terminal and run the following commands to append the environment variables directly to the .bashrc file:
-
+- Execute the Python script using python3:
 ```bash
-echo "export ROS_IP=192.168.178.154" >> ~/.bashrc
-echo "export ROS_MASTER_URI=http://192.168.178.154:11311" >> ~/.bashrc
+python3 catkin_make.py
 ```
 
-- Source the updated .bashrc file to immediately apply the changes:
 
-```bash
-source ~/.bashrc
-```
 
-### 2. Verify the Configuration:
-- Check if the variables have been set correctly by running:
 
-```bash
-echo $ROS_IP
-echo $ROS_MASTER_URI
-```
 
-- The output should display:
-```bash
-192.168.178.154
-http://192.168.178.154:11311
-```
 
 
 
