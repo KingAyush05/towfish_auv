@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+<launch>
+    <node pkg="towfish" type="dvl_publisher.py" name="dvl_publisher" output="screen">
+        <param name="ip" value="192.168.194.95" />
+        <param name="port" value="16171" />
+    </node>
+
+    <node pkg="towfish" type="dvl_vel_sub.py" name="dvl_vel_sub" output="screen">
+    </node>
+
+    <node pkg="towfish" type="dvl_orient_sub.py" name="dvl_orient_sub" output="screen">
+    </node>
+
+    <node pkg="towfish" type="towfish_node" name="towfish_node" output="screen">
+        <param name="rate" value="high" />
+        <param name="verbose" value="false" />
+        <param name="quiet" value="true" />
+    </node>
+
+    <node pkg="towfish" type="imu_data_logger.py" name="imu_data_logger" output="screen">
+    </node>
+
+    <node pkg="towfish" type="publish_ps.py" name="publish_ps" output="screen">
+    </node>
+
+    <node pkg="towfish" type="publish_temp.py" name="publish_temp" output="screen">
+    </node>
+    
+</launch>
